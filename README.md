@@ -16,5 +16,5 @@ Instructions
 * Clone the repository to your hard drive using `git clone https://github.com/SlashmanX/TallOrderHQ.git`
 * Navigate to the clone repo using `cd TallOrderHQ` 
 * Install the required modules with `npm install`
-* Rename `conf/settings.json.sample` to conf/settings.json` and edit the settings as needed
+* Rename `conf/settings.json.sample` to `conf/settings.json` and edit the settings as needed
 * Run `npm start` (or `node ./bin/www`) and visit `localhost:3000` in your browser
