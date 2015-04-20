@@ -12,8 +12,8 @@
 		"port": 9091,
 		"username": "username",
 		"password": "password",
-		"download-dir": "~/Downloads",
-		"download-dir-movies": "~/Downloads/Movies"
+		"download_dir": "~/Downloads",
+		"download_dir_movies": "~/Downloads/Movies"
 	},
 	"xbmc_mysql": {
 		"host": "localhost",

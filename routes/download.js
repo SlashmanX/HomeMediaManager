@@ -32,13 +32,19 @@ router.post('/shows/add', function(req, res) {
 	var opts = {};
 	var url =req.param('url');
 
-	transmission.addUrl(url, function(err, result){
-		if(err) {
-			console.log(err);
-			res.send('500');
-		}
-		else res.send('200');
-	});
+	try {
+
+		transmission.addUrl(url, function(err, result){
+			if(err) {
+				console.log(err);
+				res.send('500');
+			}
+			else res.send('200');
+		});
+	}
+	catch(e) {
+		console.log(e);
+	}
 });
 
 /* MOVIES */
@@ -62,13 +68,19 @@ router.post('/movies/add', function(req, res) {
 	var opts = {};
 	var url =req.param('url');
 
-	transmission.addUrl(url, {'download-dir': setting.transmission.download-dir-movies}, function(err, result){
-		if(err) {
-			console.log(err);
-			res.send('500');
-		}
-		else res.send('200');
-	});
+	try {
+
+		transmission.addUrl(url, {'download-dir': settings.transmission.download_dir_movies}, function(err, result){
+			if(err) {
+				console.log(err);
+				res.send('500');
+			}
+			else res.send('200');
+		});
+	}
+	catch(e) {
+		console.log(e);
+	}
 });
 
 /* GENERAL */
