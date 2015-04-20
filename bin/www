@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+var fs = require('fs');
+if (!fs.existsSync('./conf/settings.json')) {
+	console.error('Config file [conf/settings.json] missing!');
+	process.exit(1);
+}
+
+var settings = require('../conf/settings.json');
+var PORT = settings.port;
+
+var debug = require('debug')('TallOrderHQ');
+var app = require('../app');
+
+app.set('port', PORT);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});

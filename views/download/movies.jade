@@ -1,0 +1,51 @@
+extends ../layout
+block append scripts
+	script(type='text/javascript', src='/javascripts/views/download/movies.js')
+block content
+	form(role='form', action='/download/movies', method='POST')
+		fieldset
+			legend Movie Search
+			.form-group
+				label(for='movie').control-label Movie Name
+				input(type='text', placeholder='Movie', name='movie', autofocus, required, value=formData? formData.name : '').form-control#movie
+
+			.form-group
+				label(for='seeds').control-label Minimum Seeds
+				input(type='number', min='0', name='seeds', step='5', value=formData ? formData.seeds : '100').form-control#seeds
+
+			.form-group
+				label(for='quality').control-label Quality
+				select(name='quality').form-control#quality
+					option(value='any', selected = formData && formData.quality == 'any') Any
+					option(value='dvdrip', selected = formData && formData.quality == 'dvdrip') DVDRIP
+					option(value='brrip', selected = formData && formData.quality == 'brrip') BRRIP
+					option(value='720p', selected = formData && formData.quality == '720p') 720p
+					option(value='1080p', selected = formData && formData.quality == '1080p') 1080p
+
+			.form-group
+				label(for='limit').control-label Limit
+				select(name='limit', value=formData? formData.limit : '10').form-control#limit
+					option(value='5', selected = formData && formData.limit == '5') 5
+					option(value='10', selected = formData && formData.limit == '10') 10
+					option(value='20', selected = formData && formData.limit == '20') 20
+					option(value='50', selected = formData && formData.limit == '50') 50
+					option(value='100', selected = formData && formData.limit == '100') 100
+
+			button(type='submit').btn.btn-default Search
+
+	if(searchResults)
+		.table-responsive(style='padding-top: 10px')
+			table.table.table-bordered.table-hover.table-striped
+				thead
+					th Filename
+					th Size
+					th Seeds
+					th Download
+				tbody
+					each torrent in searchResults
+						tr
+							td=torrent.torrentData.title
+							td #{filesize(torrent.torrentData.fileSize)}
+							td=torrent.torrentData.seeds
+							td
+								a(href=torrent.torrentData.magnetURI).send-to-transmission Download

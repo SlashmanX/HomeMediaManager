@@ -1,0 +1,33 @@
+extends ../layout
+block append scripts
+	script(type='text/javascript', src='/javascripts/jquery.lazyload.min.js')
+	script(type='text/javascript', src='/javascripts/views/library/missing.js')
+block content
+	h1= title
+	.row
+		- var showOrig = show.info.banner;
+		- var banner = showOrig.match(/<thumb[^>]*>([\s\S]*?)<\/thumb>/)[1];
+		.panel.panel-default
+			.panel-body
+				img(data-original=banner).lazy
+				p= show.info.synopsis
+	.row
+		if(missing.length > 0)
+			a(href='#').download-all Download All
+			.table-responsive(style='padding-top: 10px')
+				table.table.table-bordered.table-hover.table-striped
+					thead
+						th Season
+						th Episode
+						th Filename
+						th Download
+					tbody
+						each episode in missing
+							tr
+								td=episode.season
+								td=episode.episode
+								td=episode.name
+								td
+									a(data-show=show.info.name, data-episode=episode.episode, data-season=episode.season, href='#').download-one Download
+		else
+			h3 No Episodes Missing

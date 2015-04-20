@@ -1,0 +1,24 @@
+{
+	"site_name": "Tall Order HQ",
+	"show_football": true,
+	"force_login": false,
+	"port": 3000,
+	"site_login": {
+		"username": "username",
+		"password": "password"
+	},
+	"transmission": {
+		"host": "localhost",
+		"port": 9091,
+		"username": "username",
+		"password": "password",
+		"download-dir": "~/Downloads",
+		"download-dir-movies": "~/Downloads/Movies"
+	},
+	"xbmc_mysql": {
+		"host": "localhost",
+		"user": "xbmc",
+		"password": "xbmc",
+		"database": "MyVideos78"
+	}
+}

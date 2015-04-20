@@ -1,0 +1,33 @@
+extends layout
+block append scripts
+	script(type='text/javascript', src='/javascripts/views/football.js')
+block content
+	if(fixtures)
+		h2 Fixtures
+		.table-responsive(style='padding-top: 10px')
+			table.table.table-bordered.table-hover.table-striped
+				thead
+					th Time
+					th Home
+					th Away
+				tbody
+					each fixture in fixtures
+						tr
+							td #{moment(fixture.date).format('ddd Do MMM, HH:mm')}
+							td= fixture.homeTeam
+							td= fixture.awayTeam
+
+	if(rankings)
+		h2 League Table
+		.table-responsive(style='padding-top: 10px')
+			table.table.table-bordered.table-hover.table-striped
+				thead
+					th Position
+					th Team
+					th Points
+				tbody
+					each team in rankings
+						tr
+							td= team.rank
+							td= team.team
+							td= team.points
