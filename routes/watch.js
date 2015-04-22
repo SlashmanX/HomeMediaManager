@@ -10,8 +10,7 @@ router.post('/show', function(req, res) {
 
 	var engine = peerflix(magnet);
 	engine.server.on('listening', function() {
-		var host = 'http://'+ req.get('host').split(':')[0];
-		res.render('watch/show', { title: 'Watch - Show - '+ settings.site_name, url: host + ':'+ engine.server.address().port});
+		res.render('watch/show', { title: 'Watch - Show - '+ settings.site_name, url: req.hostname, port: engine.server.address().port});
 	})
 });
 
@@ -20,8 +19,7 @@ router.post('/movie', function(req, res) {
 
 	var engine = peerflix(magnet);
 	engine.server.on('listening', function() {
-		var host = 'http://'+ req.get('host').split(':')[0];
-		res.render('watch/movie', { title: 'Watch - Movie - '+ settings.site_name, url: host + ':'+ engine.server.address().port});
+		res.render('watch/movie', { title: 'Watch - Movie - '+ settings.site_name, url: req.hostname, port: engine.server.address().port});
 	})
 });
 
