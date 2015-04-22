@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var download = require('./routes/download');
 var football = require('./routes/football');
 var library = require('./routes/library');
+var watch = require('./routes/watch');
 
 var filesize = require('filesize');
 var moment = require('moment');
@@ -58,7 +59,7 @@ app.use('/', auth, routes);
 app.use('/download', auth, download);
 app.use('/football', auth, football);
 app.use('/library', auth, library);
-
+app.use('/watch', auth, watch);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	var err = new Error('Not Found');

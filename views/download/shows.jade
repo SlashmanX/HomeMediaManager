@@ -48,6 +48,7 @@ block content
 					th Size
 					th Seeds
 					th Download
+					th Watch
 				tbody
 					each torrent in searchResults
 						tr
@@ -56,3 +57,7 @@ block content
 							td=torrent.torrentData.seeds
 							td
 								a(href=torrent.torrentData.magnetURI).send-to-transmission Download
+							td
+								form(role='form', action='/watch/show', method='POST')
+									input(type='text', style='display:none', value=torrent.torrentData.magnetURI, name='magnet')#magnet
+									button(type='submit').btn.btn-default.btn-xs Watch
