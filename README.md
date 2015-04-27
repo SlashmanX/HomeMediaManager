@@ -7,7 +7,8 @@ Features
 =======
 * View your XBMC library in your browser
 * Download missing episodes for your shows through Transmission
-* Download Movies/TV Shows/Gernal files to your hard drive using Transmission
+* Download Movies/TV Shows/General files to your hard drive using Transmission
+* Stream Movies and TV Shows in your browser
 * Secure login with Basic-Auth
 * Optionally show football fixtures and league tables
 
