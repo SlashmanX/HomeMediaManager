@@ -8,7 +8,7 @@ if (!fs.existsSync('./conf/settings.json')) {
 var settings = require('../conf/settings.json');
 var PORT = settings.port;
 
-var debug = require('debug')('TallOrderHQ');
+var debug = require('debug')('HomeMediaManager');
 var app = require('../app');
 
 app.set('port', PORT);
