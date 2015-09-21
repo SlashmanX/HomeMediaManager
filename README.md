@@ -9,7 +9,7 @@ Features
 * Download missing episodes for your shows through Transmission
 * Download Movies/TV Shows/General files to your hard drive using Transmission
 * Stream Movies and TV Shows in your browser
-* Secure login with Basic-Auth
+* Login authentication with Basic-Auth
 * Optionally show football fixtures and league tables
 
 Instructions
